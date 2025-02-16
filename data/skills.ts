@@ -11,52 +11,52 @@ export const skills = [
 					{
 						"id": "skf1",
 						"skill": "HTML",
-						"icon": "html5"
+						"icon": "/images/svg/html5.svg"
 					},
 					{
 						"id": "skf2",
 						"skill": "CSS3",
-						"icon": "css3-alt"
+						"icon": "/images/svg/css3.svg"
 					},
 					{
 						"id": "skf3",
-						"skill": "JavaScript",
-						"icon": "js-square"
+						"skill": "TypeScript",
+						"icon": "/images/svg/typescript.svg"
 					},
 					{
 						"id": "skf10",
 						"skill": "React",
-						"icon": "react"
+						"icon": "/images/svg/react.svg"
 					},
 					{
 						"id": "skf8",
 						"skill": "NextJS",
-						"icon": "nextjs"
+						"icon": "/images/svg/nextjs.svg"
 					},
 					{
 						"id": "skf4",
 						"skill": "Threejs",
-						"icon": "threejs"
+						"icon": "/images/svg/threejs.svg"
 					},
 					{
 						"id": "skf5",
-						"skill": "Bootstrap",
-						"icon": "bootstrap"
+						"skill": "TailwindCSS",
+						"icon": "/images/svg/tailwindcss.svg"
 					},
 					{
 						"id": "skf6",
 						"skill": "Redux",
-						"icon": "redux"
+						"icon": "/images/svg/redux.svg"
 					},
 					{
 						"id": "skf7",
 						"skill": "Github",
-						"icon": "github"
+						"icon": "/images/svg/github.svg"
 					},
 					{
 						"id": "skf9",
 						"skill": "Shopify",
-						"icon": "shopify"
+						"icon": "/images/svg/shopify.svg"
 					}
 				]
 			}
@@ -74,32 +74,32 @@ export const skills = [
 					{
 						"id": "skb1",
 						"skill": "NodeJs",
-						"icon": "node-js"
+						"icon": "/images/svg/nodejs.svg"
 					},
 					{
 						"id": "skb2",
 						"skill": "ExpressJS",
-						"icon": "express"
+						"icon": "/images/svg/expressjs.svg"
 					},
 					{
 						"id": "skb3",
 						"skill": "MySql",
-						"icon": "mysql"
+						"icon": "/images/svg/mysql.svg"
 					},
 					{
 						"id": "skb4",
 						"skill": "MongoDB",
-						"icon": "mongodb"
+						"icon": "/images/svg/mongodb.svg"
 					},
 					{
 						"id": "skb5",
 						"skill": "Prisma",
-						"icon": "prisma"
+						"icon": "/images/svg/prisma.svg"
 					},
 					{
 						"id": "skb6",
 						"skill": "GraphQL",
-						"icon": "graphql"
+						"icon": "/images/svg/graphql.svg"
 					}
 				]
 			}

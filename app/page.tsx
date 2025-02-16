@@ -1,12 +1,12 @@
 import Avatar from "@/components/avatar";
 import skills from "@/data/skills";
-import SkillSetCard from "@/components/cards/skillset";
 import RecentWorks from "@/components/recent-works";
 import reactWorks from "@/data/reactWorks.json";
 import shopifyWorks from "@/data/shopifyWorks.json";
 import Image from "next/image";
 import Link from "next/link";
-import { RecentWork, SubContent } from "@/libs/types";
+import { RecentWork, SkillCategory } from "@/libs/types";
+import SkillSets from "@/components/skill-sets";
 
 export default function HomePage() {
   return (
@@ -42,18 +42,7 @@ export default function HomePage() {
         </p>
       </section>
       <section className="skills-set-box w-full h-auto relative">
-        <div className="skill-set h-[50vh] w-3/4 bg-white rounded-lg shadow-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="skill-set-container w-full h-full flex">
-            {skills.map((skillset) => (
-              <SkillSetCard
-                key={skillset.id}
-                data={skillset.subContent as SubContent[]}
-                title={skillset.title}
-                image={skillset.image}
-              />
-            ))}
-          </div>
-        </div>
+        <SkillSets skills={skills as SkillCategory[]} />
       </section>
       <div className="spacer w-full h-[300px]"></div>
       <section className="h-auto w-full">
