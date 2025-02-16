@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"title": "Facebook",
+		"icon": "facebook",
+		"link": "https://web.facebook.com/Ruentgen/"
+	},
+	{
+		"id": 2,
+		"title": "Instagram",
+		"icon": "instagram",
+		"link": "https://instagram.com"
+	},
+	{
+		"id": 3,
+		"title": "twitter",
+		"icon": "twitter",
+		"link": "https://twitter.com/RuentgenC"
+	},
+	{
+		"id": 4,
+		"title": "Linkedin",
+		"icon": "linkedin",
+		"link": "https://www.linkedin.com/in/ruent-dev"
+	},
+	{
+		"id": 5,
+		"title": "Gmail",
+		"icon": "mail",
+		"link": "ruent.dev@gmail.com"
+	},
+	{
+		"id": 6,
+		"title": "Github",
+		"icon": "github",
+		"link": "https://github.com/RuentDev"
+	}
+]
