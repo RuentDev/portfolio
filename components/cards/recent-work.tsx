@@ -26,8 +26,8 @@ const RecentWorkCard: React.FC<RecentWorkCardProps> = ({ image, icon, title, pat
 							/>
 						</div>
 						<div className="content group-hover:opacity-100 opacity-0 transform-style-preserve-3d transition-all ease-in-out duration-500 ">
-							<Link target="_blank" href={path} className="inline-block h-auto py-2 px-4 text-center border border-white rounded-2xl my-8 text-white">
-								Visit
+							<Link target="_blank" href={path} className="inline-block h-auto py-2 px-4 text-center border border-white rounded-2xl my-8 text-white font-bold hover:bg-white hover:text-[#7510F7] transition-all ease-in-out duration-300">
+								Check it!
 							</Link>
 						</div>
 					</div>
