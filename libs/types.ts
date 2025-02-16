@@ -19,3 +19,11 @@ export interface SkillCategory {
     image: string;
     subContent: SubContent[];
 }
+
+export interface RecentWork {
+    id: number;
+    title: string;
+    image: string;
+    logo: string;
+    link: string;
+}

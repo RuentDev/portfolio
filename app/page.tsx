@@ -6,6 +6,7 @@ import reactWorks from "@/data/reactWorks.json";
 import shopifyWorks from "@/data/shopifyWorks.json";
 import Image from "next/image";
 import Link from "next/link";
+import { RecentWork, SubContent } from "@/libs/types";
 
 export default function HomePage() {
   return (
@@ -46,7 +47,7 @@ export default function HomePage() {
             {skills.map((skillset) => (
               <SkillSetCard
                 key={skillset.id}
-                data={skillset.subContent as any}
+                data={skillset.subContent as SubContent[]}
                 title={skillset.title}
                 image={skillset.image}
               />
@@ -56,15 +57,15 @@ export default function HomePage() {
       </section>
       <div className="spacer w-full h-[300px]"></div>
       <section className="h-auto w-full">
-        <RecentWorks title="ReactJS Projects" data={reactWorks} />
-        <RecentWorks title="Shopify Projects" data={shopifyWorks} />
+        <RecentWorks title="ReactJS Projects" data={reactWorks as RecentWork[]} />
+        <RecentWorks title="Shopify Projects" data={shopifyWorks as RecentWork[]} />
       </section>
       <section className="h-auto w-full bg-[#7510F7] px-16 mt-40 border-b border-lightWhite">
         <div className="h-[260px] w-full bg-[#141C3A] relative -top-[100px] rounded-2xl text-center p-8">
           <p className="flex flex-col text-white my-4">
             <span className="text-[2rem] font-bold">Start a project</span>
             <span className="text-[1.2rem]">Interested in working together?</span>
-            <span className="text-[1.2rem]">We should queue up a chat. I'll buy the coffee!</span>
+            <span className="text-[1.2rem]">We should queue up a chat. I&apos;ll buy the coffee!</span>
           </p>
           <Link href="/contact" className="text-[1rem] text-white rounded-full border border-white px-4 py-2 hover:bg-white hover:text-[#7510F7] transition-all ease-in-out duration-300">
            Let&apos;s do this!
