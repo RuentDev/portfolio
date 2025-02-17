@@ -1,6 +1,6 @@
 import React from 'react'
 import RecentWorkCard from './cards/recent-work'
-import { RecentWork } from '@/libs/types'
+import { RecentWork } from '@/lib/types'
 
 
 const RecentWorks = ({ title, data }: {title: string, data: RecentWork[]}) => {

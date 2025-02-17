@@ -1,4 +1,4 @@
-import { SkillCategory, SubContent } from '@/libs/types'
+import { SkillCategory, SubContent } from '@/lib/types'
 import SkillSetCard from './cards/skill-set'
 import React from 'react'
 

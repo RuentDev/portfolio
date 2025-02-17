@@ -1,4 +1,4 @@
-import { SubContent } from '@/libs/types';
+import { SubContent } from '@/lib/types';
 import Image from 'next/image';
 import React from 'react'
 

@@ -5,7 +5,7 @@ import reactWorks from "@/data/reactWorks.json";
 import shopifyWorks from "@/data/shopifyWorks.json";
 import Image from "next/image";
 import Link from "next/link";
-import { RecentWork, SkillCategory } from "@/libs/types";
+import { RecentWork, SkillCategory } from "@/lib/types";
 import SkillSets from "@/components/skill-sets";
 
 export default function HomePage() {
