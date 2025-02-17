@@ -4,6 +4,7 @@ import { sendEmail } from '@/app/actions/contact'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { Label } from '../ui/label'
+import Link from 'next/link'
 
 
 const ContactForm = () => {
@@ -45,6 +46,7 @@ const ContactForm = () => {
         >
           Send
         </Button>
+        <Link href="/" className='text-secondary text-p4 text-center text-[#7510F7] underline'>Back to Home</Link>
       </form>
   )
 }
