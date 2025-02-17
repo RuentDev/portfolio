@@ -49,8 +49,8 @@ export default function HomePage() {
         <RecentWorks title="ReactJS Projects" data={reactWorks as RecentWork[]} />
         <RecentWorks title="Shopify Projects" data={shopifyWorks as RecentWork[]} />
       </section>
-      <section className="h-auto w-full bg-[#7510F7] px-16 mt-40 border-b border-lightWhite">
-        <div className="h-[260px] w-full bg-[#141C3A] relative -top-[100px] rounded-2xl text-center p-8">
+      <section className="h-auto w-full bg-[#7510F7] mt-40 border-b border-lightWhite">
+        <div className="h-[260px] w-3/4 mx-auto bg-[#141C3A] relative -top-[100px] rounded-2xl text-center p-8">
           <p className="flex flex-col text-white my-4">
             <span className="text-[2rem] font-bold">Start a project</span>
             <span className="text-[1.2rem]">Interested in working together?</span>

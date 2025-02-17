@@ -47,16 +47,6 @@ export const skills = [
 						"id": "skf6",
 						"skill": "Redux",
 						"icon": "/images/svg/redux.svg"
-					},
-					{
-						"id": "skf7",
-						"skill": "Github",
-						"icon": "/images/svg/github.svg"
-					},
-					{
-						"id": "skf9",
-						"skill": "Shopify",
-						"icon": "/images/svg/shopify.svg"
 					}
 				]
 			}
@@ -104,7 +94,35 @@ export const skills = [
 				]
 			}
 		]
-	}
+	},
+	{
+		"id": 2,
+		"title": "Others",
+		"image": "/images/svg/backend.svg",
+		"subContent": [
+			{
+				"id": "tls1",
+				"label": "Tools",
+				"skills": [
+					{
+						"id": "sko1",
+						"skill": "Shopify",
+						"icon": "/images/svg/shopify.svg"
+					},
+					{
+						"id": "sko2",
+						"skill": "Github",
+						"icon": "/images/svg/github.svg"
+					},
+					{
+						"id": "sko3",
+						"skill": "Figma",
+						"icon": "/images/svg/figma.svg"
+					},
+				]
+			}
+		]
+	},
 ]
 
 export default skills;
