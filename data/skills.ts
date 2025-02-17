@@ -96,7 +96,7 @@ export const skills = [
 		]
 	},
 	{
-		"id": 2,
+		"id": 3,
 		"title": "Others",
 		"image": "/images/svg/backend.svg",
 		"subContent": [
