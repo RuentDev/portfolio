@@ -6,7 +6,7 @@ export function Footer() {
     { icon: Github, href: "https://github.com/RuentDev", label: "GitHub" },
     {
       icon: Linkedin,
-      href: "www.linkedin.com/in/ruent-dev",
+      href: "https://www.linkedin.com/in/ruent-dev",
       label: "LinkedIn",
     },
     // { icon: Twitter, href: "#", label: "Twitter" },
@@ -43,6 +43,8 @@ export function Footer() {
                 <Link
                   key={link.label}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors duration-200"
                 >
                   {link.label}
@@ -59,8 +61,10 @@ export function Footer() {
                 <Link
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 rounded-full glassmorphic flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-200 hover:shadow-lg"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
+                  className="w-10 h-10 rounded-full glassmorphic flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-200 hover:shadow-lg"
                 >
                   <social.icon className="h-5 w-5" />
                 </Link>

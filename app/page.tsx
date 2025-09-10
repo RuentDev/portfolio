@@ -4,6 +4,7 @@ import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
 import { Contact } from "@/components/contact";
 import { ScrollEffects } from "@/components/scroll-effects";
+import WorkExperience from "@/components/work-experience";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <main>
           <Hero />
           <About />
+          <WorkExperience />
           <Skills />
           <Projects />
           {/* <Testimonials /> */}
