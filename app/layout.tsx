@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import Footer from "@/components/footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Ruentgen Comia | RuentDev",
-  description: "FullStack JavaScript Web Developer",
+  title: "Ruentgen Comia | Full Stack JavaScript Developer",
+  description: "Full Stack JavaScript Developer",
+  generator: "Ruentgen Comia",
 };
 
 export default function RootLayout({
@@ -25,12 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full h-full`}
-      >
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+        <Navigation />
         {children}
         <Footer />
+        <Analytics />
       </body>
-    </html> 
+    </html>
   );
 }
