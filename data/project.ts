@@ -1,0 +1,98 @@
+export const projects = [
+  {
+    title: "Don Ruent's Pizza",
+    description:
+      "Don Ruent’s Pizza is a sleek and responsive food ordering web app developed with Next.js, TypeScript, and TailwindCSS. It integrates the Shopify Storefront API to manage products and menus dynamically, ensuring a smooth browsing and shopping experience. Secure checkout is powered by Stripe, providing users with a fast and reliable way to place their orders online.",
+    image: null,
+    technologies: ["Next.js", "TypeScript", "Shopify", "Redux"],
+    liveUrl: "https://donruentpizza.vercel.app",
+    githubUrl: "https://github.com/RuentDev/don-ruents-pizza",
+    featured: true,
+  },
+  {
+    title: "Chat Moko",
+    description:
+      "Chat Moko is a chat application built with React and styled using TailwindCSS. The app provides a seamless user experience with a clean, minimal design and intuitive navigation. Users can browse restaurants, explore menus, and simulate the food ordering process in real-time.",
+    image: null,
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Redux",
+      "MongoDB",
+      "Apollo Server",
+      "GraphQL",
+    ],
+    liveUrl: "https://chat-moko.vercel.app",
+    githubUrl: "https://github.com/RuentDev/don-ruents-pizza",
+    featured: true,
+  },
+  // {
+  //   title: "Eat Me",
+  //   description:
+  //     "EatMe is a modern, responsive food delivery application built with React and styled using TailwindCSS. The app provides a seamless user experience with a clean, minimal design and intuitive navigation. Users can browse restaurants, explore menus, and simulate the food ordering process in real-time.",
+  //   image: null,
+  //   technologies: ["Next.js", "TypeScript", "Shopify", "Redux"],
+  //   liveUrl: "https://eatmefooddelivery.netlify.app/",
+  //   githubUrl: "https://github.com/RuentDev/don-ruents-pizza",
+  //   featured: true,
+  // },
+  // {
+  //   title: "Task Management App",
+  //   description:
+  //     "Collaborative project management tool with real-time updates, team collaboration, and advanced analytics.",
+  //   image: "/task-management-dashboard.png",
+  //   technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   featured: false,
+  // },
+  // {
+  //   title: "AI Content Generator",
+  //   description:
+  //     "AI-powered content creation platform that helps users generate high-quality articles, social media posts, and marketing copy.",
+  //   image: "/ai-content-generator-interface.png",
+  //   technologies: ["Next.js", "OpenAI API", "Tailwind CSS", "Supabase"],
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   featured: false,
+  // },
+  // {
+  //   title: "Weather Dashboard",
+  //   description:
+  //     "Beautiful weather application with detailed forecasts, interactive maps, and location-based recommendations.",
+  //   image: "/weather-dashboard-interface.png",
+  //   technologies: ["Vue.js", "Weather API", "Chart.js", "CSS Grid"],
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   featured: false,
+  // },
+  // {
+  //   title: "Portfolio Website",
+  //   description:
+  //     "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
+  //   image: "/portfolio-website-design.png",
+  //   technologies: ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   featured: false,
+  // },
+  // {
+  //   title: "Social Media Analytics",
+  //   description:
+  //     "Comprehensive analytics dashboard for social media performance tracking with real-time data visualization.",
+  //   image: "/social-media-analytics-dashboard.png",
+  //   technologies: ["React", "D3.js", "Express.js", "Redis"],
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   featured: false,
+  // },
+];
+
+export const cubePositions = [
+  { position: [-4, 2, -2], color: "#6366f1", scale: 0.8 },
+  { position: [4, -1, 1], color: "#8b5cf6", scale: 0.6 },
+  { position: [-2, -2, 2], color: "#06b6d4", scale: 0.7 },
+  { position: [3, 3, -1], color: "#10b981", scale: 0.5 },
+  { position: [0, -3, -3], color: "#f59e0b", scale: 0.9 },
+];
