@@ -61,7 +61,7 @@ export function Navigation() {
         "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300",
         isScrolled
           ? "w-auto px-6 py-3 glassmorphic-strong rounded-full"
-          : "w-full max-w-7xl p-4"
+          : "w-full max-w-7xl p-4 md:py-4 md:px-0"
       )}
     >
       <div
