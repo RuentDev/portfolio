@@ -1,18 +1,9 @@
 "use client";
 
-import {
-  Menu,
-  X,
-  Home,
-  User,
-  Code,
-  Briefcase,
-  MessageSquare,
-  Mail,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Menu, X, Home, User, Code, Briefcase, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,6 +50,7 @@ export function Navigation() {
     { href: "#about", label: "About", icon: User },
     { href: "#skills", label: "Skills", icon: Code },
     { href: "#projects", label: "Projects", icon: Briefcase },
+    { href: "#work-experience", label: "Experience", icon: Briefcase },
     // { href: "#testimonials", label: "Reviews", icon: MessageSquare },
     { href: "#contact", label: "Contact", icon: Mail },
   ];
@@ -68,8 +60,8 @@ export function Navigation() {
       className={cn(
         "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300",
         isScrolled
-          ? "w-auto px-6 py-3 glassmorphic rounded-full"
-          : "w-full max-w-7xl py-4"
+          ? "w-auto px-6 py-3 glassmorphic-strong rounded-full"
+          : "w-full max-w-7xl p-4"
       )}
     >
       <div

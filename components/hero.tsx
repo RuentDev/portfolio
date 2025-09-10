@@ -76,7 +76,7 @@ export function Hero() {
     <motion.section
       ref={heroRef}
       style={{ y, opacity, scale }}
-      className="h-[70vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16"
+      className="hero-section h-auto flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20"
       id="hero"
     >
       <div className="max-w-7xl mx-auto">
