@@ -14,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import { Canvas } from "@react-three/fiber";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { useTypewriter } from "@/hooks/use-typewriter";
+import { socialLinks } from "@/data/contact";
 
 function FloatingCodeSymbols() {
   return (
@@ -72,6 +74,20 @@ export function Hero() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.95]);
 
+  const typewriterText = useTypewriter({
+    words: [
+      "Fullstack JavaScript Developer",
+      "React & Next.js Developer",
+      "Node.js Backend Developer",
+      "TypeScript Lover",
+      "Shopify Developer",
+      "Problem Solver",
+    ],
+    typeSpeed: 100,
+    deleteSpeed: 50,
+    delaySpeed: 2000,
+  });
+
   return (
     <motion.section
       ref={heroRef}
@@ -90,16 +106,19 @@ export function Hero() {
           >
             <div className="space-y-4">
               <motion.h1
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-balance"
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-balance min-h-[200px] sm:min-h-[240px] lg:min-h-[280px] flex items-center"
                 initial={{ opacity: 0, y: 30 }}
                 animate={
                   isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
                 }
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <span className="text-gradient">Full Stack JavaScript</span>
-                <br />
-                <span className="text-foreground"> Developer</span>
+                <div className="w-full lg:w-[600px] xl:w-[700px]">
+                  <span className="text-gradient">
+                    {typewriterText}
+                    <span className="animate-pulse">|</span>
+                  </span>
+                </div>
               </motion.h1>
               <motion.p
                 className="text-xl text-muted-foreground max-w-lg text-pretty leading-relaxed"
@@ -128,13 +147,13 @@ export function Hero() {
                 View My Work
                 <ArrowDown className="ml-2 h-4 w-4" />
               </Button>
-              <Button
+              {/* <Button
                 variant="outline"
                 size="lg"
                 className="neumorphic hover:shadow-lg transition-all duration-300 bg-card text-card-foreground border-border hover:scale-105"
               >
                 Download CV
-              </Button>
+              </Button> */}
             </motion.div>
 
             <motion.div
@@ -143,30 +162,19 @@ export function Hero() {
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
             >
-              <motion.a
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Github className="h-6 w-6" />
-              </motion.a>
-              <motion.a
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                whileHover={{ scale: 1.2, rotate: -5 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Linkedin className="h-6 w-6" />
-              </motion.a>
-              <motion.a
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Mail className="h-6 w-6" />
-              </motion.a>
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <social.icon className="h-6 w-6" />
+                </motion.a>
+              ))}
             </motion.div>
           </motion.div>
 

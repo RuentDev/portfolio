@@ -1,25 +1,7 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { quickLinks, socialLinks } from "@/data/contact";
 import Link from "next/link";
 
 export function Footer() {
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/RuentDev", label: "GitHub" },
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/in/ruent-dev",
-      label: "LinkedIn",
-    },
-    // { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Mail, href: "mailto:ruent.dev@gmail.com", label: "Email" },
-  ];
-
-  const quickLinks = [
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
-  ];
-
   return (
     <footer className="bg-muted/50 py-12 px-4 sm:px-6 lg:px-8 relative z-20">
       <div className="max-w-7xl mx-auto">
@@ -39,9 +21,9 @@ export function Footer() {
               Quick Links
             </h4>
             <nav className="flex flex-col space-y-2">
-              {quickLinks.map((link) => (
+              {quickLinks.map((link, index) => (
                 <Link
-                  key={link.label}
+                  key={index}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -57,9 +39,9 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-foreground">Connect</h4>
             <div className="flex space-x-4">
-              {socialLinks.map((social) => (
+              {socialLinks.map((social, index) => (
                 <Link
-                  key={social.label}
+                  key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"

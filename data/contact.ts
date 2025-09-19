@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 export const contactInfo = [
   {
@@ -19,4 +19,23 @@ export const contactInfo = [
     value: "Manila, Philippines",
     href: "#",
   },
+];
+
+export const socialLinks = [
+  { icon: Github, href: "https://github.com/RuentDev", label: "GitHub" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/ruent-dev",
+    label: "LinkedIn",
+  },
+  // { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Mail, href: "mailto:ruent.dev@gmail.com", label: "Email" },
+  { icon: Phone, href: "tel:+639171234567", label: "Phone" },
+];
+
+export const quickLinks = [
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
