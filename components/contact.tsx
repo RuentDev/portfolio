@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Send } from "lucide-react";
+import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { contactInfo } from "@/data/contact";
+import { toast } from "sonner";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -17,11 +18,50 @@ export function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      console.log(result);
+
+      if (response.ok) {
+        toast.success("Message sent successfully!", {
+          description: "I'll get back to you as soon as possible.",
+          icon: <CheckCircle className="h-4 w-4" />,
+        });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        toast.error("Failed to send message", {
+          description: result.error || "Please try again later.",
+          icon: <AlertCircle className="h-4 w-4" />,
+        });
+      }
+    } catch (error) {
+      toast.error("Network error", {
+        description: "Please check your connection and try again.",
+        icon: <AlertCircle className="h-4 w-4" />,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -140,8 +180,9 @@ export function Contact() {
                     size="lg"
                     variant="default"
                     className="w-full cursor-pointer"
+                    disabled={isSubmitting}
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </form>

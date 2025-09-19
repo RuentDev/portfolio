@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Ruentgen Comia | Full Stack JavaScript Developer",
@@ -24,6 +25,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Analytics />
+        <Toaster />
       </body>
     </html>
   );
