@@ -1,13 +1,4 @@
 export const projects = [
-{
-    title: "AI Energy Shop",
-    description:"", 
-    image: null,
-    technologies: ["Next.js", "TypeScript", "Strapi", "Redux", "Tailwind", "Stripe", "n8n"],
-    liveUrl: "https://staging.aienergyshop.com.au",
-    githubUrl: "",
-    featured: true,
-  },
   {
     title: "AI Energy Shop",
     description:
