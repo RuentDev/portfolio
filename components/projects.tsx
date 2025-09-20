@@ -70,11 +70,12 @@ export function Projects() {
               className="neumorphic border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 group hover:scale-105"
             >
               <div className="relative overflow-hidden">
-                <iframe
-                  sandbox="allow-same-origin allow-scripts"
-                  src={project.liveUrl}
-                  className="w-full h-70 object-cover group-hover:scale-105 transition-transform duration-500 overflow-hidden"
-                  scrolling="no"
+                <Image
+                  src={project.image || "/placeholder.svg"}
+                  className="w-full h-[350px] object-cover object-top group-hover:scale-105 transition-transform duration-500 overflow-hidden"
+                  alt={project.title}
+                  width={300}
+                  height={200}
                 />
                 <div className="absolute inset-0 glassmorphic opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
                   <Button
@@ -97,13 +98,15 @@ export function Projects() {
                   </Button>
                 </div>
               </div>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold mb-4 text-foreground">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-6 text-pretty leading-relaxed">
-                  {project.description}
-                </p>
+              <CardContent className="h-[350px] flex flex-col justify-between items-start">
+                <div className="py-8">
+                  <h3 className="text-2xl font-semibold mb-4 text-foreground">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 text-pretty leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <Badge
@@ -118,6 +121,16 @@ export function Projects() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div>
+          <h2 className="text-4xl text-center sm:text-5xl font-bold text-gradient mb-6">
+            Personal Projects
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed text-center">
+            A showcase of my personal projects, demonstrating expertise in
+            modern web technologies and user-centered design principles.
+          </p>
         </div>
 
         {/* Other Projects Grid */}
