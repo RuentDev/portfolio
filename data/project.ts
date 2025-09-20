@@ -26,7 +26,7 @@ export const projects = [
     liveUrl: "https://donruentpizza.vercel.app",
     image: "/projects/don-ruent-pizza.png",
     githubUrl: "https://github.com/RuentDev/don-ruents-pizza",
-    featured: false,
+    featured: true,
   },
   // {
   //   title: "Eat Me",
