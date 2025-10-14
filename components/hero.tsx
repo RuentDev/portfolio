@@ -16,6 +16,7 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useTypewriter } from "@/hooks/use-typewriter";
 import { socialLinks } from "@/data/contact";
+import Link from "next/link";
 
 function FloatingCodeSymbols() {
   return (
@@ -140,20 +141,24 @@ export function Hero() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              >
-                View My Work
-                <ArrowDown className="ml-2 h-4 w-4" />
-              </Button>
-              {/* <Button
-                variant="outline"
-                size="lg"
-                className="neumorphic hover:shadow-lg transition-all duration-300 bg-card text-card-foreground border-border hover:scale-105"
-              >
-                Download CV
-              </Button> */}
+              <Link href="#skills">
+                <Button
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
+                  View My Work
+                  <ArrowDown className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/resume.pdf">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="neumorphic hover:shadow-lg transition-all duration-300 bg-card text-card-foreground border-border hover:scale-105"
+                >
+                  Download CV
+                </Button>
+              </Link>
             </motion.div>
 
             <motion.div
