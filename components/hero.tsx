@@ -191,7 +191,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <motion.div
-              className="absolute inset-0 w-full h-full"
+              className="absolute inset-0 w-full h-full top-15"
               style={{
                 y: useTransform(scrollY, [0, 500], [0, -100]),
                 rotateY: useTransform(scrollY, [0, 500], [0, 15]),
