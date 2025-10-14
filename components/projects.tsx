@@ -54,7 +54,7 @@ export function Projects() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gradient mb-6">
-            Featured Projects
+            Recent Projects
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
             A showcase of my recent work, demonstrating expertise in modern web
@@ -84,28 +84,30 @@ export function Projects() {
                     onClick={() => window.open(project.liveUrl, "_blank")}
                   >
                     <ExternalLink className="h-4 w-4 mr-2" />
-                    Live Demo
+                    Preview
                   </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="glassmorphic bg-transparent hover:scale-110 transition-transform duration-200"
-                  >
-                    <Link href={project.githubUrl} target="_blank">
-                      <Github className="h-4 w-4 mr-2" />
-                    </Link>
-                    Code
-                  </Button>
+                  {project.githubUrl && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="glassmorphic bg-transparent hover:scale-110 transition-transform duration-200"
+                    >
+                      <Link href={project.githubUrl} target="_blank">
+                        <Github className="h-4 w-4 mr-2" />
+                      </Link>
+                      Code
+                    </Button>
+                  )}
                 </div>
               </div>
-              <CardContent className="h-[350px] flex flex-col justify-between items-start">
+              <CardContent className="h-auto flex flex-col justify-between items-start">
                 <div className="py-8">
                   <h3 className="text-2xl font-semibold mb-4 text-foreground">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-6 text-pretty leading-relaxed">
+                  {/* <p className="text-muted-foreground mb-6 text-pretty leading-relaxed">
                     {project.description}
-                  </p>
+                  </p> */}
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
@@ -153,6 +155,7 @@ export function Projects() {
                     size="sm"
                     className="glassmorphic p-2 hover:scale-110 transition-transform duration-200"
                   >
+                    Preview
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                   <Button
@@ -160,35 +163,28 @@ export function Projects() {
                     variant="outline"
                     className="glassmorphic p-2 bg-transparent hover:scale-110 transition-transform duration-200"
                   >
+                    Code
                     <Github className="h-4 w-4" />
                   </Button>
                 </div>
               </div>
-              <CardContent className="p-6">
+              <CardContent className="p-6 h-auto">
                 <h4 className="text-lg font-semibold mb-2 text-foreground">
                   {project.title}
                 </h4>
-                <p className="text-sm text-muted-foreground mb-4 text-pretty">
+                {/* <p className="text-sm text-muted-foreground mb-4 text-pretty">
                   {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1">
-                  {project.technologies.slice(0, 2).map((tech) => (
+                </p> */}
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
                     <Badge
                       key={tech}
-                      variant="secondary"
-                      className="text-xs neumorphic-inset hover:scale-105 transition-transform duration-200"
+                      variant="default"
+                      className="neumorphic-inset hover:scale-105 transition-transform duration-200 text-black"
                     >
                       {tech}
                     </Badge>
                   ))}
-                  {project.technologies.length > 2 && (
-                    <Badge
-                      variant="secondary"
-                      className="text-xs neumorphic-inset hover:scale-105 transition-transform duration-200"
-                    >
-                      +{project.technologies.length - 2}
-                    </Badge>
-                  )}
                 </div>
               </CardContent>
             </Card>
