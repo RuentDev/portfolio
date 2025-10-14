@@ -8,7 +8,6 @@ export const projects = [
       "TypeScript",
       "Redux",
       "MySQL",
-      "Strapi",
       "GraphQL API",
       "REST API",
       "Strapi",
