@@ -1,28 +1,5 @@
 export const projects = [
   {
-    title: "AI Energy Shop",
-    description:
-      "AI Energy Shop is an Australian wholesale distributor of everything solar, with solar panels, inverters, batteries, EV chargers, panel mounting and more. built with React and styled using TailwindCSS Shadcn UI. The app provides a seamless user experience with a clean, minimal design and intuitive navigation. Users can browse Solar Products.",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Redux",
-      "MySQL",
-      "GraphQL API",
-      "REST API",
-      "Strapi",
-      "Docker",
-      "NGinX",
-      "Git",
-      "CI/CD",
-      "Figma",
-    ],
-    liveUrl: "https://chat-moko.vercel.app",
-    image: "/projects/ai-energy-shop.png",
-    githubUrl: null,
-    featured: true,
-  },
-  {
     title: "Don Ruent's Pizza",
     description:
       "Don Ruent's Pizza is a sleek and responsive food ordering web app developed with Next.js, TypeScript, and TailwindCSS. It integrates the Shopify Storefront API to manage products and menus dynamically, ensuring a smooth browsing and shopping experience.",
@@ -61,6 +38,29 @@ export const projects = [
       "Figma",
     ],
     liveUrl: "https://sunniesstudios.com",
+    githubUrl: null,
+    featured: true,
+  },
+    {
+    title: "AI Energy Shop",
+    description:
+      "AI Energy Shop is an Australian wholesale distributor of everything solar, with solar panels, inverters, batteries, EV chargers, panel mounting and more. built with React and styled using TailwindCSS Shadcn UI. The app provides a seamless user experience with a clean, minimal design and intuitive navigation. Users can browse Solar Products.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Redux",
+      "MySQL",
+      "GraphQL API",
+      "REST API",
+      "Strapi",
+      "Docker",
+      "NGinX",
+      "Git",
+      "CI/CD",
+      "Figma",
+    ],
+    liveUrl: "https://beta.aienergyshop.com.au",
+    image: "/projects/ai-energy-shop.png",
     githubUrl: null,
     featured: true,
   },
