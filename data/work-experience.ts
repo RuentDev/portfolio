@@ -1,7 +1,7 @@
 export const experiences = [
   {
     id: 1,
-    title: "Shopify Developer",
+    title: "Senior Shopify Developer",
     company: "Umbra Digital",
     location: "Aurora Blvd. Cubao, Quezon City, Philippines",
     period: "September 2024 - Present",
@@ -23,7 +23,7 @@ export const experiences = [
   },
   {
     id: 2,
-    title: "Full Stack JavaScript Developer",
+    title: "Senior Software Engineer",
     company: "JAV Resouce Corporation",
     location: "#23 Gordon Avenue, Pag-asa, Olongapo City, Philippines",
     period: "August 2024 - September 2024",
