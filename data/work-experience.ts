@@ -69,6 +69,6 @@ export const experiences = [
       "Docker",
       "AWS",
     ],
-    link: "#",
+    link: "https://www.linkedin.com/company/hokei-corp-areel3d",
   },
 ];

@@ -69,115 +69,117 @@ export default function WorkExperience() {
 
           {/* Experience Cards */}
           <div className="space-y-12">
-            {experiences.map((experience, index) => (
-              <motion.div
-                key={experience.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                } flex-col md:gap-8`}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background transform md:-translate-x-1/2 z-10 shadow-lg">
-                  <div className="absolute inset-1 bg-primary/30 rounded-full animate-pulse"></div>
-                </div>
-
-                {/* Content Card */}
-                <Card
-                  className={`neumorphic hover:shadow-2xl transition-all duration-500 group w-full md:w-[calc(50%-2rem)] ${
-                    index % 2 === 0 ? "md:mr-8" : "md:ml-8"
-                  } ml-12 md:ml-0`}
+            {experiences
+              .sort((a, b) => b.id - a.id)
+              .map((experience, index) => (
+                <motion.div
+                  key={experience.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className={`relative flex items-center ${
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  } flex-col md:gap-8`}
                 >
-                  <CardContent className="p-8">
-                    {/* Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Building2 className="w-5 h-5 text-primary" />
-                          <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                            {experience.title}
-                          </h3>
-                        </div>
-                        <p className="text-lg font-semibold text-primary mb-1">
-                          {experience.company}
-                        </p>
-                        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {experience.period}
+                  {/* Timeline Dot */}
+                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background transform md:-translate-x-1/2 z-10 shadow-lg">
+                    <div className="absolute inset-1 bg-primary/30 rounded-full animate-pulse"></div>
+                  </div>
+
+                  {/* Content Card */}
+                  <Card
+                    className={`neumorphic hover:shadow-2xl transition-all duration-500 group w-full md:w-[calc(50%-2rem)] ${
+                      index % 2 === 0 ? "md:mr-8" : "md:ml-8"
+                    } ml-12 md:ml-0`}
+                  >
+                    <CardContent className="p-8">
+                      {/* Header */}
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Building2 className="w-5 h-5 text-primary" />
+                            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                              {experience.title}
+                            </h3>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {experience.location}
+                          <p className="text-lg font-semibold text-primary mb-1">
+                            {experience.company}
+                          </p>
+                          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-1">
+                              <Calendar className="w-4 h-4" />
+                              {experience.period}
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <MapPin className="w-4 h-4" />
+                              {experience.location}
+                            </div>
+                            <Badge variant="secondary" className="text-xs">
+                              {experience.type}
+                            </Badge>
                           </div>
-                          <Badge variant="secondary" className="text-xs">
-                            {experience.type}
-                          </Badge>
                         </div>
+
+                        <motion.a
+                          href={experience.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Visit
+                        </motion.a>
                       </div>
 
-                      <motion.a
-                        href={experience.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Visit
-                      </motion.a>
-                    </div>
+                      {/* Description */}
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                        {experience.description}
+                      </p>
 
-                    {/* Description */}
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {experience.description}
-                    </p>
+                      {/* Achievements */}
+                      {experience.achievements.length > 0 && (
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-foreground mb-3">
+                            Key Achievements:
+                          </h4>
+                          <ul className="space-y-2">
+                            {experience.achievements.map((achievement, i) => (
+                              <li
+                                key={i}
+                                className="flex items-start gap-2 text-sm text-muted-foreground"
+                              >
+                                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                {achievement}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
 
-                    {/* Achievements */}
-                    {experience.achievements.length > 0 && (
-                      <div className="mb-6">
+                      {/* Technologies */}
+                      <div>
                         <h4 className="font-semibold text-foreground mb-3">
-                          Key Achievements:
+                          Technologies Used:
                         </h4>
-                        <ul className="space-y-2">
-                          {experience.achievements.map((achievement, i) => (
-                            <li
+                        <div className="flex flex-wrap gap-2">
+                          {experience.technologies.map((tech, i) => (
+                            <Badge
                               key={i}
-                              className="flex items-start gap-2 text-sm text-muted-foreground"
+                              variant="outline"
+                              className="text-xs hover:bg-primary/10 transition-colors"
                             >
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                              {achievement}
-                            </li>
+                              {tech}
+                            </Badge>
                           ))}
-                        </ul>
+                        </div>
                       </div>
-                    )}
-
-                    {/* Technologies */}
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-3">
-                        Technologies Used:
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {experience.technologies.map((tech, i) => (
-                          <Badge
-                            key={i}
-                            variant="outline"
-                            className="text-xs hover:bg-primary/10 transition-colors"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
           </div>
         </div>
 
