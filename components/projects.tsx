@@ -72,7 +72,7 @@ export function Projects() {
               <div className="relative overflow-hidden">
                 <Image
                   src={project.image || "/placeholder.svg"}
-                  className="w-full h-[350px] object-cover object-top group-hover:scale-105 transition-transform duration-500 overflow-hidden"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 overflow-hidden"
                   alt={project.title}
                   width={300}
                   height={200}
@@ -140,7 +140,7 @@ export function Projects() {
           {otherProjects.map((project, index) => (
             <Card
               key={index}
-              className="neumorphic border-0 overflow-hidden hover:shadow-xl transition-all duration-300 group hover:scale-105"
+              className="p-0 m-0 neumorphic border-0 overflow-hidden hover:shadow-xl transition-all duration-300 group hover:scale-105"
             >
               <div className="relative overflow-hidden">
                 <Image
@@ -151,21 +151,29 @@ export function Projects() {
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 glassmorphic opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-2">
-                  <Button
-                    size="sm"
-                    className="glassmorphic p-2 hover:scale-110 transition-transform duration-200"
+                  <Link
+                    target="_blank"
+                    href={project.liveUrl}
+                    className="h-4 w-4"
                   >
-                    Preview
-                    <ExternalLink className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="glassmorphic p-2 bg-transparent hover:scale-110 transition-transform duration-200"
-                  >
-                    Code
-                    <Github className="h-4 w-4" />
-                  </Button>
+                    <Button
+                      size="sm"
+                      className=" cursor-pointer glassmorphic p-2 hover:scale-110 transition-transform duration-200"
+                    >
+                      Preview
+                    </Button>
+                  </Link>
+
+                  {project.githubUrl && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="glassmorphic p-2 bg-transparent hover:scale-110 transition-transform duration-200"
+                    >
+                      Code
+                      <Github className="h-4 w-4" />
+                    </Button>
+                  )}
                 </div>
               </div>
               <CardContent className="p-6 h-auto">
