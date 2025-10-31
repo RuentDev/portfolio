@@ -41,7 +41,7 @@ export const projects = [
     githubUrl: null,
     featured: true,
   },
-    {
+  {
     title: "AI Energy Shop",
     description:
       "AI Energy Shop is an Australian wholesale distributor of everything solar, with solar panels, inverters, batteries, EV chargers, panel mounting and more. built with React and styled using TailwindCSS Shadcn UI. The app provides a seamless user experience with a clean, minimal design and intuitive navigation. Users can browse Solar Products.",
@@ -86,7 +86,7 @@ export const projects = [
       "Netlify",
     ],
     liveUrl: "https://eatmefooddelivery.netlify.app/",
-    githubUrl: null,
+    githubUrl: "https://github.com/RuentDev/eat-me",
     featured: false,
   },
   // {
