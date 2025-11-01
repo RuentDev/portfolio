@@ -5,10 +5,11 @@ import { Suspense } from "react";
 import { cubePositions, projects } from "@/data/project";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Link } from "lucide-react";
+import { ExternalLink, Github, Link as LinkIcon } from "lucide-react";
 import { Canvas, Vector3 } from "@react-three/fiber";
 import { Card, CardContent } from "@/components/ui/card";
 import { OrbitControls, Environment, Box } from "@react-three/drei";
+import Link from "next/link";
 
 function FloatingProjectCubes() {
   return (
@@ -78,25 +79,27 @@ export function Projects() {
                   height={200}
                 />
                 <div className="absolute inset-0 glassmorphic opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                  <Button
-                    size="sm"
-                    className="glassmorphic hover:scale-110 transition-transform duration-200"
-                    onClick={() => window.open(project.liveUrl, "_blank")}
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Preview
-                  </Button>
-                  {project.githubUrl && (
+                  <Link href={project.liveUrl} target="_blank">
                     <Button
                       size="sm"
-                      variant="outline"
-                      className="glassmorphic bg-transparent hover:scale-110 transition-transform duration-200"
+                      className="glassmorphic hover:scale-110 transition-transform duration-200"
+                      onClick={() => window.open(project.liveUrl, "_blank")}
                     >
-                      <Link href={project.githubUrl} target="_blank">
-                        <Github className="h-4 w-4 mr-2" />
-                      </Link>
-                      Code
+                      <LinkIcon className="h-4 w-4 mr-2" />
+                      Preview
                     </Button>
+                  </Link>
+                  {project.githubUrl && (
+                    <Link href={project.githubUrl} target="_blank">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="glassmorphic bg-transparent hover:scale-110 transition-transform duration-200"
+                      >
+                        <Github className="h-4 w-4 mr-2" />
+                        Code
+                      </Button>
+                    </Link>
                   )}
                 </div>
               </div>
@@ -140,7 +143,7 @@ export function Projects() {
           {otherProjects.map((project, index) => (
             <Card
               key={index}
-              className="p-0 m-0 neumorphic border-0 overflow-hidden hover:shadow-xl transition-all duration-300 group hover:scale-105"
+              className="p-0 m-0  gap-0 neumorphic border-0 overflow-hidden hover:shadow-xl transition-all duration-300 group hover:scale-105"
             >
               <div className="relative overflow-hidden">
                 <Image
@@ -151,32 +154,31 @@ export function Projects() {
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 glassmorphic opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-2">
-                  <Link
-                    target="_blank"
-                    href={project.liveUrl}
-                    className="h-4 w-4"
-                  >
+                  <Link target="_blank" href={project.liveUrl}>
                     <Button
                       size="sm"
                       className=" cursor-pointer glassmorphic p-2 hover:scale-110 transition-transform duration-200"
                     >
                       Preview
+                      <LinkIcon className="h-4 w-4" />
                     </Button>
                   </Link>
 
                   {project.githubUrl && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="glassmorphic p-2 bg-transparent hover:scale-110 transition-transform duration-200"
-                    >
-                      Code
-                      <Github className="h-4 w-4" />
-                    </Button>
+                    <Link href={project.githubUrl} target="_blank">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="glassmorphic p-2 bg-transparent hover:scale-110 transition-transform duration-200"
+                      >
+                        Code
+                        <Github className="h-4 w-4" />
+                      </Button>
+                    </Link>
                   )}
                 </div>
               </div>
-              <CardContent className="p-6 h-auto">
+              <CardContent className="py-4 px-2 h-auto">
                 <h4 className="text-lg font-semibold mb-2 text-foreground">
                   {project.title}
                 </h4>
