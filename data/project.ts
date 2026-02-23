@@ -23,26 +23,6 @@ export const projects = [
     featured: true,
   },
   {
-    title: "Don Ruent's Pizza",
-    description:
-      "Don Ruent's Pizza is a sleek and responsive food ordering web app developed with Next.js, TypeScript, and TailwindCSS. It integrates the Shopify Storefront API to manage products and menus dynamically, ensuring a smooth browsing and shopping experience.",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Shopify",
-      "Storefront API",
-      "Redux",
-      "GraphQL",
-      "Git",
-      "CI/CD",
-      "Figma",
-    ],
-    liveUrl: "https://donruentpizza.vercel.app",
-    image: "/projects/don-ruent-pizza.png",
-    githubUrl: "https://github.com/RuentDev/don-ruents-pizza",
-    featured: true,
-  },
-  {
     title: "Sunnies Studios",
     description: "",
     image: "/projects/sunnies-studios.png",
@@ -71,6 +51,26 @@ export const projects = [
     technologies: ["HTML", "CSS", "JavaScript", "Shopify"],
     liveUrl: "https://flask-builder.vercel.app",
     githubUrl: null,
+    featured: true,
+  },
+  {
+    title: "Don Ruent's Pizza",
+    description:
+      "Don Ruent's Pizza is a sleek and responsive food ordering web app developed with Next.js, TypeScript, and TailwindCSS. It integrates the Shopify Storefront API to manage products and menus dynamically, ensuring a smooth browsing and shopping experience.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Shopify",
+      "Storefront API",
+      "Redux",
+      "GraphQL",
+      "Git",
+      "CI/CD",
+      "Figma",
+    ],
+    liveUrl: "https://donruentpizza.vercel.app",
+    image: "/projects/don-ruent-pizza.png",
+    githubUrl: "https://github.com/RuentDev/don-ruents-pizza",
     featured: true,
   },
   {
