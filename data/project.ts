@@ -54,6 +54,24 @@ export const projects = [
     featured: true,
   },
   {
+    title: "Glowup",
+    description: "Craft using Payload CMS",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Payload CMS",
+      "Storefront API",
+      "Zustand",
+      "GraphQL",
+      "Git",
+      "CI/CD",
+    ],
+    liveUrl: "https://glowup-payloadcms.vercel.app",
+    image: "/projects/glowup.png",
+    githubUrl: "https://github.com/RuentDev/glowup",
+    featured: true,
+  },
+  {
     title: "Don Ruent's Pizza",
     description:
       "Don Ruent's Pizza is a sleek and responsive food ordering web app developed with Next.js, TypeScript, and TailwindCSS. It integrates the Shopify Storefront API to manage products and menus dynamically, ensuring a smooth browsing and shopping experience.",
