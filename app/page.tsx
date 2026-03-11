@@ -1,6 +1,7 @@
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Skills } from "@/components/skills";
+import { ServiceCards } from "@/components/service-cards";
 import { Projects } from "@/components/projects";
 import { Contact } from "@/components/contact";
 import { ScrollEffects } from "@/components/scroll-effects";
@@ -13,6 +14,7 @@ export default function Home() {
         <main>
           <Hero />
           <About />
+          {/* <ServiceCards /> */}
           <Skills />
           <Projects />
           <WorkExperience />

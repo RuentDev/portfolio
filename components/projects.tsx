@@ -10,6 +10,16 @@ import { Canvas, Vector3 } from "@react-three/fiber";
 import { Card, CardContent } from "@/components/ui/card";
 import { OrbitControls, Environment, Box } from "@react-three/drei";
 import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 function FloatingProjectCubes() {
   return (
@@ -32,6 +42,9 @@ function FloatingProjectCubes() {
 export function Projects() {
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
+  const topProjects = featuredProjects.slice(0, 3);
+  const remainingFeatured = featuredProjects.slice(3);
+  const allOtherProjects = [...remainingFeatured, ...otherProjects];
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
@@ -63,72 +76,102 @@ export function Projects() {
           </p>
         </div>
 
-        {/* Featured Projects */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {featuredProjects.map((project, index) => (
-            <Card
-              key={index}
-              className="neumorphic border-0 overflow-hidden hover:shadow-2xl transition-all duration-500 group hover:scale-105"
-            >
-              <div className="relative overflow-hidden">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 overflow-hidden"
-                  alt={project.title}
-                  width={300}
-                  height={200}
-                />
-                <div className="absolute inset-0 glassmorphic opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                  <Link href={project.liveUrl} target="_blank">
-                    <Button
-                      size="sm"
-                      className="glassmorphic hover:scale-110 transition-transform duration-200"
-                      onClick={() => window.open(project.liveUrl, "_blank")}
+        {/* Focal Projects Scrollable Area */}
+        <Carousel
+          className="w-full"
+          opts={{
+            align: "start",
+          }}
+        >
+          <CarouselContent className="p-5">
+            {projects.map((project, index) => (
+              <CarouselItem key={index} className="basis-1/2 p-2 lg:basis-1/3">
+                <motion.div
+                  key={index}
+                  initial={{ scale: 0.9, opacity: 0.8, rotate: 0 }}
+                  whileInView={{
+                    scale: 1.1,
+                    opacity: 1,
+                    zIndex: 30,
+                    transition: { duration: 0.5 },
+                  }}
+                  viewport={{ margin: "-20%" }}
+                  className="flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[450px] snap-center relative first:ml-0 last:mr-0 px-4 lg:px-0"
+                >
+                  <div className="p-10">
+                    <Card
+                      className={`p-0 border-0 overflow-hidden shadow-xl transition-all duration-500 group flex flex-col h-full rounded-3xl ${
+                        index % 2 === 0
+                          ? "card-gradient-primary"
+                          : "card-gradient-secondary"
+                      }`}
                     >
-                      <LinkIcon className="h-4 w-4 mr-2" />
-                      Preview
-                    </Button>
-                  </Link>
-                  {project.githubUrl && (
-                    <Link href={project.githubUrl} target="_blank">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="glassmorphic bg-transparent hover:scale-110 transition-transform duration-200"
-                      >
-                        <Github className="h-4 w-4 mr-2" />
-                        Code
-                      </Button>
-                    </Link>
-                  )}
-                </div>
-              </div>
-              <CardContent className="h-auto flex flex-col justify-between items-start">
-                <div className="py-8">
-                  <h3 className="text-2xl font-semibold mb-4 text-foreground">
-                    {project.title}
-                  </h3>
-                  {/* <p className="text-muted-foreground mb-6 text-pretty leading-relaxed">
-                    {project.description}
-                  </p> */}
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="default"
-                      className="neumorphic-inset hover:scale-105 transition-transform duration-200 text-black"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                      <CardContent className="p-8 flex-1 flex flex-col">
+                        <div className="mb-6">
+                          <span className="text-xs font-bold tracking-widest uppercase opacity-70 mb-2 block">
+                            PROJECT {index + 1}
+                          </span>
+                          <h3 className="text-3xl font-bold mb-4 leading-tight text-white text-shadow-premium">
+                            {project.title}
+                          </h3>
+                          <div className="space-y-3">
+                            {project.technologies.slice(0, 5).map((tech) => (
+                              <div
+                                key={tech}
+                                className="flex items-center text-sm font-medium text-white/90"
+                              >
+                                <div className="mr-3 h-5 w-5 rounded-full bg-white/20 flex items-center justify-center">
+                                  <div className="h-1.5 w-1.5 rounded-full bg-white" />
+                                </div>
+                                {tech}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="mt-auto pt-6 text-center">
+                          <Button
+                            size="lg"
+                            className="w-full glassmorphic-strong bg-white/10 hover:bg-white/20 border-white/20 text-white font-bold rounded-2xl transition-all duration-300"
+                            onClick={() =>
+                              window.open(project.liveUrl, "_blank")
+                            }
+                          >
+                            View Project
+                            <ExternalLink className="ml-2 h-4 w-4" />
+                          </Button>
+                        </div>
+                      </CardContent>
+
+                      <div className="relative h-64 overflow-hidden mt-auto">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10" />
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          fill
+                          className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
+                          sizes="(max-width: 768px) 100vw, 450px"
+                        />
+                      </div>
+                    </Card>
+                  </div>
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+        <div className="relative overflow-hidden">
+          {/* Scroll Indicators */}
+          {/* <div className="flex justify-center space-x-2 mt-4 lg:hidden">
+            {topProjects.map((_, i) => (
+              <div key={i} className="h-1.5 w-1.5 rounded-full bg-primary/20" />
+            ))}
+          </div> */}
         </div>
 
-        <div>
+        {/* <div>
           <h2 className="text-4xl text-center sm:text-5xl font-bold text-gradient mb-6">
             Personal Projects
           </h2>
@@ -136,70 +179,67 @@ export function Projects() {
             A showcase of my personal projects, demonstrating expertise in
             modern web technologies and user-centered design principles.
           </p>
-        </div>
+        </div> */}
 
         {/* Other Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {otherProjects.map((project, index) => (
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {allOtherProjects.map((project, index) => (
             <Card
               key={index}
-              className="p-0 m-0  gap-0 neumorphic border-0 overflow-hidden hover:shadow-xl transition-all duration-300 group hover:scale-105"
+              className="p-0 border-0 overflow-hidden hover:shadow-xl transition-all duration-300 group hover:scale-[1.05] flex flex-col h-full rounded-2xl glass-surface"
             >
-              <div className="relative overflow-hidden">
+              <CardContent className="p-6 flex-1 flex flex-col">
+                <div className="mb-4">
+                  <h4 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-md bg-foreground/5 text-foreground/70"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-auto pt-4 flex gap-2">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className="flex-1 rounded-xl hover:bg-primary hover:text-white transition-all duration-300 h-9"
+                    onClick={() => window.open(project.liveUrl, "_blank")}
+                  >
+                    Preview
+                    <ExternalLink className="ml-1 h-3 w-3" />
+                  </Button>
+                  {project.githubUrl && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="rounded-xl border-foreground/10 hover:border-primary/50 h-9 px-3"
+                      onClick={() => window.open(project.githubUrl, "_blank")}
+                    >
+                      <Github className="h-3 w-3" />
+                    </Button>
+                  )}
+                </div>
+              </CardContent>
+
+              <div className="relative h-40 mt-2 overflow-hidden">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 20vw"
                 />
-                <div className="absolute inset-0 glassmorphic opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-2">
-                  <Link target="_blank" href={project.liveUrl}>
-                    <Button
-                      size="sm"
-                      className=" cursor-pointer glassmorphic p-2 hover:scale-110 transition-transform duration-200"
-                    >
-                      Preview
-                      <LinkIcon className="h-4 w-4" />
-                    </Button>
-                  </Link>
-
-                  {project.githubUrl && (
-                    <Link href={project.githubUrl} target="_blank">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="glassmorphic p-2 bg-transparent hover:scale-110 transition-transform duration-200"
-                      >
-                        Code
-                        <Github className="h-4 w-4" />
-                      </Button>
-                    </Link>
-                  )}
-                </div>
               </div>
-              <CardContent className="py-4 px-2 h-auto">
-                <h4 className="text-lg font-semibold mb-2 text-foreground">
-                  {project.title}
-                </h4>
-                {/* <p className="text-sm text-muted-foreground mb-4 text-pretty">
-                  {project.description}
-                </p> */}
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="default"
-                      className="neumorphic-inset hover:scale-105 transition-transform duration-200 text-black"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
             </Card>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
