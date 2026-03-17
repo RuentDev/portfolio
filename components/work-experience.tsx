@@ -27,7 +27,7 @@ function FloatingCube({ position }: { position: [number, number, number] }) {
   );
 }
 
-export default function WorkExperience() {
+export function WorkExperience() {
   return (
     <section
       className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"

@@ -221,11 +221,11 @@ export function Hero() {
               >
                 <div className="w-full h-full rounded-full overflow-hidden glassmorphic">
                   <Image
-                    src="/me.jpg"
+                    src="/me.jpeg"
                     alt="Ruentgen's Profile Picture"
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover object-top"
                   />
                 </div>
               </motion.div>

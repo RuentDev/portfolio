@@ -1,11 +1,10 @@
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Skills } from "@/components/skills";
-import { ServiceCards } from "@/components/service-cards";
 import { Projects } from "@/components/projects";
 import { Contact } from "@/components/contact";
 import { ScrollEffects } from "@/components/scroll-effects";
-import WorkExperience from "@/components/work-experience";
+import { WorkExperience } from "@/components/work-experience";
 
 export default function Home() {
   return (
@@ -13,13 +12,11 @@ export default function Home() {
       <ScrollEffects>
         <main>
           <Hero />
-          <About />
-          {/* <ServiceCards /> */}
-          <Skills />
-          <Projects />
           <WorkExperience />
-          {/* <Testimonials /> */}
+          <Skills />
+          <About />
           <Contact />
+          <Projects />
         </main>
       </ScrollEffects>
     </div>
