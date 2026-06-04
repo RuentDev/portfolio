@@ -1,24 +1,22 @@
-import { Hero } from "@/components/hero";
-import { About } from "@/components/about";
-import { Skills } from "@/components/skills";
-import { Projects } from "@/components/projects";
-import { Contact } from "@/components/contact";
-import { ScrollEffects } from "@/components/scroll-effects";
-import { WorkExperience } from "@/components/work-experience";
+import { HeroV2 } from "@/components/heroV2";
+import { AboutV2 } from "@/components/aboutV2";
+import { SkillsV2 } from "@/components/skillsV2";
+import { ProjectsV2 } from "@/components/projectsV2";
+import { ContactV2 } from "@/components/contactV2";
+import { ScrollEffectsV2 } from "@/components/scrollEffectsV2";
 
 export default function Home() {
   return (
     <div className="bg-background">
-      <ScrollEffects>
-        <main>
-          <Hero />
-          <WorkExperience />
-          <Skills />
-          <About />
-          <Contact />
-          <Projects />
+      <ScrollEffectsV2>
+        <main className="cinematic-container">
+          <HeroV2 />
+          <AboutV2 />
+          <SkillsV2 />
+          <ProjectsV2 />
+          <ContactV2 />
         </main>
-      </ScrollEffects>
+      </ScrollEffectsV2>
     </div>
   );
 }
