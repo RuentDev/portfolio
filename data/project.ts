@@ -45,6 +45,22 @@ export const projects = [
     featured: true,
   },
   {
+    title: "DesignStuff",
+    description: "Shopify Website",
+    technologies: [
+      "Shopify",
+      "JavaScript",
+      "Storefront API",
+      "GraphQL",
+      "Git",
+      "CI/CD",
+    ],
+    liveUrl: "https://designstuff.dk",
+    image: "/projects/design-stuff.png",
+    githubUrl: "",
+    featured: true,
+  },
+  {
     title: "Glowup",
     description: "Craft using Payload CMS",
     technologies: [
@@ -60,7 +76,7 @@ export const projects = [
     liveUrl: "https://glowup-payloadcms.vercel.app",
     image: "/projects/glowup.png",
     githubUrl: "https://github.com/RuentDev/glowup",
-    featured: true,
+    featured: false,
   },
   {
     title: "Don Ruent's Pizza",
